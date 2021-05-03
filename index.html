@@ -17,68 +17,45 @@
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col-sm-4 color">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Enter City Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <span class="input-group-text" id="basic-addon2">Search</span>
+      <div class="search">
+          <div class="row">
+              <h1>Search for a City:</h1>
           </div>
-        </div>
-        
-        <button class="btn btn-primary" type="submit">Clear</button>
-        <!-- Dynamically create this list -->
-        <ul class="list-group">
-          <li class="list-group-item">These</li>
-          <li class="list-group-item">Need</li>
-          <li class="list-group-item">To</li>
-          <li class="list-group-item">Be</li>
-          <li class="list-group-item">Dynamic</li>
-        </ul>
+          <div class="row">
+              <input type="text" class="searchInput" placeholder="Denver">
+              <button type="submit" class="searchBtn">
+              <i class="fas fa-search"></i>
+              </button>
+          </div>
+          <div class="historyItems"></div>
       </div>
+      <div class="col-two-container">
+          <div class="forecast">
+              <div class="row">
+                  <h1 class="cityName">City Name</h1>
+                  <h1 class="currentDate"></h1>
+                  <img class="weatherIcon"></img>
+              </div>
+              <div class="row">
+                  <p class="temp">Temperature:</p>
+              </div>
+              <div class="row">
+                  <p class="humidity">Humidity:</p>
+              </div>
+              <div class="row">
+                  <p class="windSpeed">Wind Speed:</p>
+              </div>
+              <div class="row">
+                  <p class="uvIndex">UV Index:</p>
+              </div>
+          </div>
 
-      <div class="col-sm-8">
-        <div class="row">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">City</h5>
-              <p class="card-text">City Name: </p>
-              <p class="card-text">Date:</p>
-              <p class="card-text">Icon:</p>
-              <p class="card-text">Temperature:</p>
-              <p class="card-text"> Humidity: </p>
-              <p class="card-text">Wind Speed:</p>
-              <p class="card-text">UV Index: </p>
-            </div>
+          <div class="five-day-container">
+              <h1>5-Day Forecast:</h1>
+              <div class="card-row">
+              </div>
           </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm">
-            Day1
-            <p>Date Icon, temp, wind, humidity</p>
-          </div>
-          <div class="col-sm">
-            Day2
-            <p>Date Icon, temp, wind, humidity</p>
-          </div>
-          <div class="col-sm">
-            Day3
-            <p>Date Icon, temp, wind, humidity</p>
-          </div>
-          <div class="col-sm">
-            Day4
-            <p>Date Icon, temp, wind, humidity</p>
-          </div>
-          <div class="col-sm">
-            Day5
-            <p>Date Icon, temp, wind, humidity</p>
-          </div>
-        </div>
       </div>
-        </div>
-        </div>
-      </div>
-    </div>
+  </div>
   </body>
 </html>
