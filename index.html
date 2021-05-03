@@ -12,65 +12,75 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
     <link rel="stylesheet" href="./style.css" />
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
 
     <!-- moment.js script link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <title>Weather Dashboard</title>
   </head>
   <body>
-    <div class="container">
-      <div class="search">
-          <div class="row">
-              <h1>Search for a City:</h1>
-          </div>
-          <div class="row">
-              <input type="text" class="userInput" placeholder="Denver">
-              <button type="submit" class="searchButton">
-              <i class="fas fa-search"></i>
-              </button>
-          </div>
-          <div class="searchHistory"></div>
-      </div>
-      <div class="col-two-container">
-          <div class="forecast">
-              <div class="row">
-                  <h1 class="cityName">City Name</h1>
-                  <h3 class="currentDate"></h3>
-                  <img class="Icon"></img>
-              </div>
-              <div class="row">
-                  <p class="temperature">Temperature:</p>
-              </div>
-              <div class="row">
-                  <p class="humidity">Humidity:</p>
-              </div>
-              <div class="row">
-                  <p class="wind">Wind Speed:</p>
-              </div>
-              <div class="row">
-                  <p class="uvIndex">UV Index:</p>
-              </div>
-          </div>
-          <!-- 5 day forecast -->
-          <div class="five-day-container">
-              <h1>5-Day Forecast:</h1>
-              <div class="card-row">
-              </div>
-          </div>
-      </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-  crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-  crossorigin="anonymous"></script>
-  <script src="./script.js"></script>
+    <body>
+        <header>
+            <h1><strong>Weather Dashboard</strong></h1></span>
+        </header>
+        <div class="container-fluid h-85 drop-padding">
+            <div class="row">
+                <!-- left side wheer search history is going to be-->
+                <div class="col-sm-3 p-3" id="left-side">
+                    <div class="row p-3" id="search-bar">
+                        <form>
+                            <input type="text" placeholder="Enter City" id="city-input">
+                            <button class="btn btn-primary" id="search-btn"><i class="fa fa-search"></i></button>
+                            <button class="btn btn-primary" id="clear-btn">Clear</button>
+                        </form>
+                    </div>
+                    <div class="row btn-group" id="search-history">
+                    </div>
+                </div>
+                <!-- Right side conatiner where the current weather will be -->
+                <div class="col-sm-9 drop-padding" id="right-side">
+                    <!-- Current weather -->
+                    <div class="row pl-4" id="current-weather">
+                        <div class="col">
+                            <span id="city-date-row"></span>
+                            <br>
+                            <span id="temp-row"></span>
+                            <br>
+                            <span id="humidity-row"></span>
+                            <br>
+                            <span id="wind-speed-row"></span>
+                            <br>
+                            <span  id="uv-index-row"></span>
+                            <br>
+                        </div>
+                    </div>
+                    <!-- 5 Day forecast 5 different columns -->
+                    <div class="row p-2" id="fiveDayForcast">
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js"></script>
   </body>
 </html>
