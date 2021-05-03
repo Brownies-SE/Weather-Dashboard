@@ -15,3 +15,20 @@ var windEl = $(".wind");
 var uvEl = $(".uvIndex");
 var searchHistory = $(".searchHistory");
 var futureForecastEl = $(".card-row");
+
+var today = moment().format("dddd, MMMM Do YYYY");
+console.log(today);
+
+var historyList = JSON.parse(localStorage.getItem("historyList") || "[]");
+
+function searchHistory(cityEl) {
+  for (i = 0; i < historyList; i++) {
+    var newItem = $("<li>").attr("class", "searchHistory");
+    newItem.text(historyList[i]);
+    cityEl.prepend(newItem);
+  }
+}
+
+$(document).on("click", "historyBtn", function () {
+  console.log("Got here");
+});
