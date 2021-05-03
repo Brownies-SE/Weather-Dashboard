@@ -13,3 +13,5 @@ var tempEl = $(".temperature");
 var humidEl = $(".humidity");
 var windEl = $(".wind");
 var uvEl = $(".uvIndex");
+var searchHistory = $(".searchHistory");
+var futureForecastEl = $(".card-row");
