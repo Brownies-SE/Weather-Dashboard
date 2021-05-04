@@ -31,7 +31,7 @@ var historyList = JSON.parse(localStorage.getItem("historyList") || "[]");
 
 $("#searchButton").click(function () {
   var getCity = $("#UserInput").val();
-  $(".list-group").append("<button btn-primary>" + getCity + "</button>");
+  $(".list-group").append("<button btn-primary p-3>" + getCity + "</button>");
   console.log(getCity);
 
   fetch(
@@ -68,7 +68,24 @@ $("#searchButton").click(function () {
         .then(function (uvData) {
           console.log(uvData);
 
-          uvEl.text(uvData.current.uvi);
+          //Does not properly set the color
+          if (uvData.current.uvi < 3) {
+            uvEl
+              .text(uvData.current.uvi)
+              .attr("style", "background-color: green");
+          } else if (uvData.current.uvi < 7) {
+            uvEl
+              .text(uvData.current.uvi)
+              .attr("style", "background-color: yellow");
+          } else if (uvData.current.uvi < 11) {
+            uvEl
+              .text(uvData.current.uvi)
+              .attr("style", "background-color: red");
+          } else {
+            uvEl
+              .text(uvData.current.uvi)
+              .attr("style", "background-color: marroon", "color: white");
+          }
         });
     });
 
@@ -81,6 +98,7 @@ $("#searchButton").click(function () {
     .then(function (data) {
       //console.log(data);
 
+      deck.empty();
       for (var i = 0; i < data.list.length; i++) {
         if (data.list[i].dt_txt.includes("12:00:00")) {
           console.log(data.list[i]);
