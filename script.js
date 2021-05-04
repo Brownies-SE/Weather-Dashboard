@@ -16,6 +16,37 @@ var futureForecastEl = $("#fiveDayForecast");
 var historyButtonsEl = $(".btn-group");
 
 var today = moment().format("dddd, MMMM Do YYYY");
-console.log(today);
+//console.log(today);
 
 var historyList = JSON.parse(localStorage.getItem("historyList") || "[]");
+//console.log(historyList);
+
+// $(document).ready(function () {
+//   var getCity = $("userInput").val();
+//   $("#getCity").text(getCity);
+//
+
+$("#searchButton").click(function () {
+  var getCity = $("#UserInput").val();
+  $(".list-group").append("<button btn-primary>" + getCity + "</button>");
+  console.log(getCity);
+
+  fetch(
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+      getCity +
+      "&appid=" +
+      myKey +
+      "&units=imperial"
+  )
+    .then(function (response) {
+      console.log(response);
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      //Set the text items in the html
+      tempEl.text(data.main.temp);
+      humidEl.text(data.main.humidity);
+      windEl.text(data.wind.speed);
+    });
+});

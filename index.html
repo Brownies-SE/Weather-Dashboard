@@ -30,52 +30,82 @@
     <title>Weather Dashboard</title>
   </head>
   <body>
-    <body>
-        <header>
-            <h1><strong>Weather Dashboard</strong></h1></span>
-        </header>
-        <div class="container-fluid h-85 drop-padding">
-            <div class="row">
-                <!-- left side wheer search history is going to be-->
-                <div class="col-sm-3 p-3" id="left-side">
-                    <div class="row p-3" id="search-bar">
-                        <form>
-                            <input type="text" placeholder="Enter City" id="city-input">
-                            <button class="btn btn-primary" id="search-btn"><i class="fa fa-search"></i></button>
-                            <button class="btn btn-primary" id="clear-btn">Clear</button>
-                        </form>
-                    </div>
-                    <div class="row btn-group" id="search-history">
-                    </div>
-                </div>
-                <!-- Right side conatiner where the current weather will be -->
-                <div class="col-sm-9 drop-padding" id="right-side">
-                    <!-- Current weather -->
-                    <div class="row pl-4" id="current-weather">
-                        <div class="col">
-                            <span id="city-date-row"></span>
-                            <br>
-                            <span id="temp-row"></span>
-                            <br>
-                            <span id="humidity-row"></span>
-                            <br>
-                            <span id="wind-speed-row"></span>
-                            <br>
-                            <span  id="uv-index-row"></span>
-                            <br>
-                        </div>
-                    </div>
-                    <!-- 5 Day forecast 5 different columns -->
-                    <div class="row p-2" id="fiveDayForcast">
-                    </div>
-                </div>
+    <div class="container p-5">
+      <!--Row to search for the city from user-->
+      <div class="row">
+        <div class="col-sm-4 bg-light">
+          <!--Creating a "Form" to get the user input-->
+          <h4 class="pt-1"><strong>Search for a City:</strong></h4>
+          <!--Get the user Input here-->
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="UserInput"
+              aria-label="City Search"
+              aria-describedby=""
+            />
+            <div class="input-group-append">
+              <button class="btn bg-primary" id="searchButton">
+                <i class="fa fa-search"></i>
+              </button>
             </div>
+          </div>
+          <!--section for search city history-->
+          <button class="btn btn-primary" type="button" id="clearButton">
+            Clear
+          </button>
+          <ul class="list-group"></ul>
         </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
+        <div class="col-sm-8">
+          <div class="row ml-2 border border-dark">
+            <div class="col-sm-12" id="current-weather">
+              <h3 class="city-name" id="current-city"></h3>
+              <p>Temperature: <span class="current" id="temperature"></span></p>
+              <p>Humidity: <span class="current" id="humidity"></span></p>
+              <p>Wind Speed: <span class="current" id="wind"></span></p>
+              <p>UV index: <span class="current" id="uvIndex"></span></p>
+            </div>
+          </div>
+          <!--Row for the 5 day forecast-->
+          <div class="col-sm-12" id="future-weather">
+            <h3>5-Day Forecast:</h3>
+            <div class="row">
+              <div class="col-sm-2 bg-primary">
+                <p id="date1"></p>
+                <p id="img1"></p>
+                <p>Temp:<span id="temp1"></span></p>
+                <p>Humidity:<span id="humidity1"></span></p>
+              </div>
+              <div class="col-sm-2 bg-primary">
+                <p id="date2"></p>
+                <p id="image2"></p>
+                <p>Temp:<span id="temp2"></span></p>
+                <p>Humidity:<span id="humidity2"></span></p>
+              </div>
+              <div class="col-sm-2 bg-primary">
+                <p id="date3"></p>
+                <p id="image3"></p>
+                <p>Temp:<span id="temp3"></span></p>
+                <p>Humidity:<span id="humidty3"></span></p>
+              </div>
+              <div class="col-sm-2 bg-primary f">
+                <p id="date4"></p>
+                <p id="image4"></p>
+                <p>Temp:<span id="temp4"></span></p>
+                <p>Humidity:<span id="humidity4"></span></p>
+              </div>
+              <div class="col-sm-2 bg-primary">
+                <p id="date5"></p>
+                <p id="image5"></p>
+                <p>Temp:<span id="temp5"></span></p>
+                <p>Humidity:<span id="humidity5"></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
