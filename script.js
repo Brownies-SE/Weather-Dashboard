@@ -5,7 +5,6 @@ UvIndex needs to have a color that represents the conditions. Create 5 elements 
 //Creating all variables
 var myKey = "094ff2fa112c80cd9451fbf9613c1dea";
 var searchButton = $("#searchButton");
-var clearButton = $("#clearButton");
 var cityEl = $("#city");
 var dateEl = $("#date");
 var tempEl = $("#temperature");
@@ -25,13 +24,9 @@ var today = moment().format("dddd, MMMM Do YYYY");
 var historyList = JSON.parse(localStorage.getItem("historyList") || "[]");
 //console.log(historyList);
 
-// $(document).ready(function () {
-//   var getCity = $("userInput").val();
-//   $("#getCity").text(getCity);
-
 $("#searchButton").click(function () {
   var getCity = $("#UserInput").val();
-  $(".list-group").append("<button btn-primary p-3>" + getCity + "</button>");
+  $(".list-group").prepend("<button btn-primary p-3>" + getCity + "</button>");
   console.log(getCity);
 
   fetch(
@@ -127,6 +122,22 @@ $("#searchButton").click(function () {
     });
 });
 
-clearButton.on("click", function () {
-  localStorage.clear();
+$(".list-group").click(function (event) {
+  $.getJSON(
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+      event.target.innerText +
+      "&appid=" +
+      myKey +
+      "&units=imperial",
+    function (data) {
+      var iconurl =
+        "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+      icon.attr("src", iconurl);
+      cityEl.text(data.name);
+      dateEl.text(today);
+      tempEl.text(data.main.temp);
+      humidEl.text(data.main.humidity);
+      windEl.text(data.wind.speed);
+    }
+  );
 });
